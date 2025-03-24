@@ -155,7 +155,7 @@ def collaboration_func(ind, question, answer, model_name, data_type):
             messages = message_construction(model_name, prompt)
             check_result = evaluator_construction(messages, model_name, question, data_type)
             print(check_result)
-            if 'discard' not in check_result.lower() or flag > 3:
+            if isinstance(check_result, str) and 'discard' not in check_result.lower() or flag > 3:
                 description_ls.append(description)
                 break
             flag += 1
